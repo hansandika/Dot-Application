@@ -33,7 +33,7 @@ class RegisterRequest extends FormRequest
             'dob' => ['required', 'before:today'],
             'password' => ['required', 'min:7', 'alpha_num'],
             'confirm-password' => ['required', 'same:password'],
-            'agreement' => ['required']
+            'agreement' => ['required', 'boolean']
         ];
     }
 

@@ -115,7 +115,7 @@ You have to **signup** and then **login** to be able to apply CRUD for post.
 #### Sign Up
 
 ```http
-  POST /api/v1/auth/signup
+  POST /api/register
 ```
 
 | Parameter          | Type      | Description                    |
@@ -129,7 +129,7 @@ You have to **signup** and then **login** to be able to apply CRUD for post.
 #### Login
 
 ```http
-  POST /api/v1/auth/login
+  POST /api/login
 ```
 
 | Parameter  | Type     | Description         |

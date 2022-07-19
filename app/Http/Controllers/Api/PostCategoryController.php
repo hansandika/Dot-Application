@@ -43,7 +43,7 @@ class PostCategoryController extends Controller
             $response = [
                 'status' => 201,
                 'data' => $category,
-                'message' => 'Post added successfully'
+                'message' => 'Post category added successfully'
             ];
             return response()->json($response, 201);
         } catch (Exception $e) {
@@ -67,7 +67,7 @@ class PostCategoryController extends Controller
             $response = [
                 'status' => 201,
                 'data' => $category,
-                'message' => 'Post added successfully'
+                'message' => 'Post category updated successfully'
             ];
             return response()->json($response, 201);
         } catch (Exception $e) {

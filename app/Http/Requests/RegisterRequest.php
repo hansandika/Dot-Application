@@ -52,5 +52,6 @@ class RegisterRequest extends FormRequest
             ];
             throw new HttpResponseException(response()->json($response, 400));
         }
+        parent::failedValidation($validator);
     }
 }

@@ -66,7 +66,7 @@
                     <div>
                         <div class="flex items-center">
                             <input id="agreement" name="agreement" type="checkbox"
-                                class="w-4 h-4 rounded accent-blue-600 focus:ring-blue-500">
+                                class="w-4 h-4 rounded accent-blue-600 focus:ring-blue-500" required>
                             <label for="agreement" class="block ml-2 text-sm text-gray-900 select-none">Agree with
                                 Privacy
                                 and Policy

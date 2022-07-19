@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Request;
 
 class RegisterRequest extends FormRequest
 {
@@ -33,7 +34,7 @@ class RegisterRequest extends FormRequest
             'dob' => ['required', 'before:today'],
             'password' => ['required', 'min:7', 'alpha_num'],
             'confirm-password' => ['required', 'same:password'],
-            'agreement' => ['required', 'boolean']
+            'agreement' => ['required']
         ];
     }
 
@@ -43,11 +44,13 @@ class RegisterRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        $response = [
-            'status' => 400,
-            'message' => $validator->errors()->first(),
-            'data' => $validator->errors()
-        ];
-        throw new HttpResponseException(response()->json($response, 400));
+        if (request()->is('api/*')) {
+            $response = [
+                'status' => 400,
+                'message' => $validator->errors()->first(),
+                'data' => $validator->errors()
+            ];
+            throw new HttpResponseException(response()->json($response, 400));
+        }
     }
 }

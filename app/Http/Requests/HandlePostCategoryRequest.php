@@ -37,11 +37,13 @@ class HandlePostCategoryRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        $response = [
-            'status' => 400,
-            'message' => $validator->errors()->first(),
-            'data' => $validator->errors()
-        ];
-        throw new HttpResponseException(response()->json($response, 400));
+        if (request()->is('api/*')) {
+            $response = [
+                'status' => 400,
+                'message' => $validator->errors()->first(),
+                'data' => $validator->errors()
+            ];
+            throw new HttpResponseException(response()->json($response, 400));
+        }
     }
 }
